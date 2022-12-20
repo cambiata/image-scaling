@@ -3,12 +3,9 @@ import './App.css';
 import { useRef } from 'react';
 
 function App() {
-
   const divRef = useRef();
-
   return (
     <div className="App">
-
       <button onClick={e => {
         console.log(divRef.current);
         window.fetch('/svg.txt').then(r => {
@@ -18,7 +15,7 @@ function App() {
             addSvg(divRef.current, text);
           });
         });
-      }}>Test scaling</button>
+      }}>Test</button>
       <div ref={divRef} />
     </div >
   );
@@ -27,9 +24,6 @@ function App() {
 export default App;
 
 function addSvg(div, svg) {
-
-  console.log('OPTIMIZATION useSvgToBitmapAlt');
-  const t0 = performance.now();
   const tempdiv = document.createElement('div');
   tempdiv.innerHTML = svg;
   const svgElement = tempdiv.firstElementChild;
@@ -47,7 +41,7 @@ function addSvg(div, svg) {
     console.log('useSvgToBitmapAlt page render', t1 - t0 + 'ms');
   };
   image.onerror = (e) => alert(
-    JSON.stringify(e)
+    JSON.stringify(e, ["message", "arguments", "type", "name"])
   );
   image.src = blobUrl;
 
