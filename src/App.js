@@ -18,7 +18,7 @@ function App() {
             addSvg(divRef.current, text);
           });
         });
-      }}>Test svg to bitmap</button>
+      }}>Test</button>
       <div ref={divRef} />
 
     </div >
@@ -47,7 +47,9 @@ function addSvg(div, svg) {
     // res(true);
     console.log('useSvgToBitmapAlt page render', t1 - t0 + 'ms');
   };
-  image.onerror = e => alert(JSON.stringify(e));
+  image.onerror = (message, url, line, column, error) => alert(
+    message + ' ' + url + ' ' + line + ' ' + column + ' ' + JSON.stringify(error)
+  );
   image.src = blobUrl;
 
 }
