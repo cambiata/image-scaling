@@ -35,10 +35,6 @@ function addSvg(div, svg) {
     image.style.width = '100%';
     image.style.height = '100%';
     div.appendChild(image);
-    const t1 = performance.now();
-    // console.log(div.firstElementChild);
-    // res(true);
-    console.log('useSvgToBitmapAlt page render', t1 - t0 + 'ms');
   };
   image.onerror = (e) => alert(
     JSON.stringify(e, ["message", "arguments", "type", "name"])
