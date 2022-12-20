@@ -18,7 +18,7 @@ function App() {
             addSvg(divRef.current, text);
           });
         });
-      }}>Test</button>
+      }}>Test svg to bitmap</button>
       <div ref={divRef} />
 
     </div >
